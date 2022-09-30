@@ -42,11 +42,7 @@ func (p *ProductDb) Save(product app.ProductInterface) (app.ProductInterface, er
 		return nil, err
 	}
 
-	err = stmt.QueryRow(product.GetID()).Scan(&rows)
-
-	if err != nil {
-		return nil, err
-	}
+	stmt.QueryRow(product.GetID()).Scan(&rows)
 
 	if rows == 0 {
 		_, err = p.create(product)
