@@ -17,6 +17,7 @@ type ProductInterface interface {
 	Disable() error
 	GetID() string
 	GetName() string
+	GetStatus() string
 	GetPrice() float64
 }
 
@@ -105,6 +106,10 @@ func (p *Product) GetID() string {
 
 func (p *Product) GetName() string {
 	return p.Name
+}
+
+func (p *Product) GetStatus() string {
+	return p.Status
 }
 
 func (p *Product) GetPrice() float64 {
