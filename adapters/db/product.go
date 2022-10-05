@@ -36,7 +36,7 @@ func (p *ProductDb) Get(id string) (app.ProductInterface, error) {
 func (p *ProductDb) Save(product app.ProductInterface) (app.ProductInterface, error) {
 	var rows int
 
-	stmt, err := p.db.Prepare("SELECT id FROM products WHERE id = ?")
+	stmt, err := p.db.Prepare("SELECT count(id) FROM products WHERE id = ?")
 
 	if err != nil {
 		return nil, err
